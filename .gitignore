@@ -48,3 +48,6 @@ Temporary Items
 
 #Ignore Three.js primary source directory
 /three.js-master/
+
+#Ignore custom python http.server bat
+.bat
