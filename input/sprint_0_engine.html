@@ -5,6 +5,7 @@
 =============================================================================
 CS 4143 GAME ENGINE BASE
 Author: David Cline 
+Modified: Jordan Fest
 =============================================================================
 
 Description:
@@ -404,6 +405,11 @@ function parseSceneNode(jsonNode, sceneNode)
 				sceneNode.add(light);
 				parseSceneNode(childJsonNode, light);
 			}
+            else if (childType == "pointLight") {
+				var light = parsePointLight(childJsonNode);
+				sceneNode.add(light);
+				parseSceneNode(childJsonNode, light);
+			}
 			else if (childType == "mesh") {
 				var mesh = parseMesh(childJsonNode);
 				sceneNode.add(mesh);
@@ -493,6 +499,31 @@ function parseDirectionalLight(jsonNode)
 	// Create the light and return it
 	var c = new THREE.Color(color[0], color[1], color[2]);	
 	var light = new THREE.DirectionalLight( c );
+	light.position.set( position[0], position[1], position[2] );
+	return light;
+}
+
+//----------------------------------------------------------------------//
+// PARSE A POINT LIGHT
+//----------------------------------------------------------------------//
+
+function parsePointLight(jsonNode)
+{
+	//debug("parseDirectionalLight\n");
+
+	// Start with default values
+	var color = [1.0, 1.0, 1.0];
+	var position = [1.0, 1.0, 1.0];
+    var intensity = 0.25;
+    var decay = 2;
+
+	// Replace with data from jsonNode
+	if ("color"    in jsonNode) color    = jsonNode["color"];
+	if ("position" in jsonNode) position = jsonNode["position"];
+
+	// Create the light and return it
+	var c = new THREE.Color(color[0], color[1], color[2]);	
+	var light = new THREE.PointLight( c, intensity, 3, decay );
 	light.position.set( position[0], position[1], position[2] );
 	return light;
 }

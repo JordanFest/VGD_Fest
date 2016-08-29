@@ -1,0 +1,168 @@
+{ 
+"COMMENT": "Jordan Fest: Sprint 0 Test File",
+"type": "node",
+"name": "rootNode",
+
+"scriptFiles": 
+[
+	"scripts/sprint_0/sprint_0_test.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl"]
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [0, 0, 10],
+		"center": [0, 0, 0],
+		"vup": [0, 1, 0],
+		"fov": 30
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light1",
+		"color": [1, 1, 0.5],
+		"position": [0.5, 1, 0.5]
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light2",
+		"color": [0.3, 0.3, 1],
+		"position": [-0.5, -1, 0.5]
+	},
+    {
+        "COMMENT": "Energy Light 1",
+        "type": "pointLight",
+        "name": "eLight1",
+        "color": [255, 255, 0],
+        "position": [0, 0, 0]
+    },
+    {
+        "COMMENT": "Energy Light 2",
+        "type": "pointLight",
+        "name": "eLight2",
+        "color": [255, 255, 0],
+        "position": [0, 0, 0]
+    },
+    {
+        "COMMENT": "Energy Light Main",
+        "type": "pointLight",
+        "name": "eLightM",
+        "color": [255, 255, 0],
+        "position": [0, 0, 0]
+    },
+    {
+		"COMMENT": "Energy Star",
+		"type": "mesh",
+		"name": "star",
+		"translate": [0, 0, -2],
+		"geometry": "sphere",
+		"widthSegments": 3,
+		"heightSegments": 4,
+        "rotateX": 0.785398,
+        "rotateZ": 0.785398,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [1, 0.89, 0.03]
+		}
+	},
+	{
+		"COMMENT": "Energy Ball 1",
+		"type": "mesh",
+		"name": "ball1",
+		"translate": [0, 0, 0],
+		"geometry": "sphere",
+		"widthSegments": 2,
+		"heightSegments": 2,
+        "scale": [0.4, 0.4, 0.4],
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [1, 0.89, 0.03]
+		}
+	},
+    {
+		"COMMENT": "Energy Ball 2",
+		"type": "mesh",
+		"name": "ball2",
+		"translate": [0, 0, 0],
+		"geometry": "sphere",
+		"widthSegments": 2,
+		"heightSegments": 2,
+        "scale": [0.4, 0.4, 0.4],
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [1, 0.89, 0.03]
+		}
+	},
+    {
+		"COMMENT": "Static_Cube",
+		"type": "mesh",
+		"name": "cube",
+		"translate": [2, 2, 0],
+		"geometry": "cube",
+        "scale": [0.4, 0.4, 0.4],
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [0.5, 0.5, 0.5]
+		}
+	},
+    {
+		"COMMENT": "Static_Cube",
+		"type": "mesh",
+		"name": "cube",
+		"translate": [-2, 2, 0],
+		"geometry": "cube",
+        "scale": [0.4, 0.4, 0.4],
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [0.5, 0.5, 0.5]
+		}
+	},
+{
+		"COMMENT": "Static_Cube",
+		"type": "mesh",
+		"name": "cube",
+		"translate": [2, -2, 0],
+		"geometry": "cube",
+        "scale": [0.4, 0.4, 0.4],
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [0.5, 0.5, 0.5]
+		}
+	},
+        {
+		"COMMENT": "Static_Cube",
+		"type": "mesh",
+		"name": "cube",
+		"translate": [-2, -2, 0],
+		"geometry": "cube",
+        "scale": [0.4, 0.4, 0.4],
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [0.5, 0.5, 0.5]
+		}
+	}
+]
+}
