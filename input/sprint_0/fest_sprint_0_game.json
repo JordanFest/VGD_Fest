@@ -1,0 +1,112 @@
+{ 
+"COMMENT": "Jordan Fest: Sprint 0 Test File",
+"type": "node",
+"name": "rootNode",
+
+"scriptFiles": 
+[
+	"../scripts/sprint_0/sprint_0_game.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl"]
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [0, 0, 10],
+		"center": [0, 0, 0],
+		"vup": [0, 1, 0],
+		"fov": 30
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light1",
+		"color": [1, 1, 0.5],
+		"position": [0.5, 1, 0.5]
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light2",
+		"color": [0.3, 0.3, 1],
+		"position": [-0.5, -1, 0.5]
+	},
+	{
+		"COMMENT": "Left Paddle",
+		"type": "mesh",
+		"name": "paddle_l",
+		"translate": [-3.5, 0, 0],
+		"geometry": "cube",
+        "scale": [0.15, 0.6, 0.3],
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [1, 1, 1]
+		}
+	},
+    {
+		"COMMENT": "Right Paddle",
+		"type": "mesh",
+		"name": "paddle_r",
+		"translate": [3.5, 0, 0],
+		"geometry": "cube",
+        "scale": [0.15, 0.6, 0.3],
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [1, 1, 1]
+		}
+	},
+    {
+		"COMMENT": "Pong",
+		"type": "mesh",
+		"name": "pong",
+		"translate": [0, 0, 0],
+		"geometry": "cube",
+        "scale": [0.15, 0.15, 0.15],
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [1, 1, 1]
+		}
+	},
+    {
+        "COMMENT": "Border",
+        "type": "mesh",
+        "name": "border_top",
+        "translate": [0, 2.75, 0],
+        "geometry": "cube",
+        "scale": [10, 0.5, 1],
+        "material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [1, 1, 1]
+		}
+    },
+    {
+        "COMMENT": "Border",
+        "type": "mesh",
+        "name": "border_top",
+        "translate": [0, -2.75, 0],
+        "geometry": "cube",
+        "scale": [10, 0.5, 1],
+        "material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "starMat",
+			"diffuseColor": [1, 1, 1]
+		}
+    }
+]
+}

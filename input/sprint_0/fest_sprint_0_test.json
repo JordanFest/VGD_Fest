@@ -5,7 +5,7 @@
 
 "scriptFiles": 
 [
-	"scripts/sprint_0/sprint_0_test.js"
+	"../scripts/sprint_0/sprint_0_test.js"
 ],
 
 "userData":
