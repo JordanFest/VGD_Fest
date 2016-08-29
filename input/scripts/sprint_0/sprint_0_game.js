@@ -20,23 +20,26 @@ function sceneControl(sceneNode)
             paddle_col_l = children[i];
        if(children[i].name == "paddle_col_r")
             paddle_col_r = children[i];
+        if(children[i].name == "pongLight")
+            pong_light = children[i];
     }
     
     for(var key in pressedKeys)
     {
         if(pressedKeys.hasOwnProperty(key) && pressedKeys[key] == true)
         {
-            if(key == 87 && paddle_l.position.y < yBound)
+            //W
+            if(key == 87 && paddle_l.position.y < yBound - 0.5)
                 paddle_l.position.y += paddleSpeed;
-            
-            if(key == 83 && paddle_l.position.y > -yBound)
+            //S
+            if(key == 83 && paddle_l.position.y > -yBound + 0.5)
                 paddle_l.position.y -= paddleSpeed;
             
-            
-            if(key == 38 && paddle_r.position.y < yBound)
+            //Up Arrow
+            if(key == 38 && paddle_r.position.y < yBound - 0.5)
                 paddle_r.position.y += paddleSpeed;
-            
-            if(key == 40 && paddle_r.position.y > -yBound)
+            //Down Arrow
+            if(key == 40 && paddle_r.position.y > -yBound + 0.5)
                 paddle_r.position.y -= paddleSpeed;           
         }
     }

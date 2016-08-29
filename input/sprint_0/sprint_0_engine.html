@@ -62,10 +62,6 @@ SimpleHTTPServer:
 		z-index: 100;				/* High draw order (drawn on top) */
 		display:block;				/* Display elements should be stacked vertically */
 	}
-    
-    p {
-        background-color: black;
-    }
 </style>
 </head>
 
@@ -76,8 +72,8 @@ SimpleHTTPServer:
 
 <div style="position: absolute; width: 100%">
     <h1 id="score-board" style="postion: absolute;">
-        <p id="score-left" style="width: 50%">00</p>
-        <p id="score-right" style="text-align: right; float: right; width: 50%; position: absolute; top: 0px; left: 50%">00</p>
+        <p id="score-left" style="width: 50%"></p>
+        <p id="score-right" style="text-align: right; float: right; width: 50%; position: absolute; top: 0px; left: 50%"></p>
     </h1>
 </div>
 
@@ -703,6 +699,7 @@ function render()
 }
 
 //----------------------------------------------------------------------//
+//Pong Game Code for Sprint 0
 var newGame = true;
 var xBound = 4.5;
 var yBound = 2;
@@ -710,19 +707,20 @@ var yBound = 2;
 var paddle_l;
 var paddle_r;
 
-var paddle_col_l;
-var paddle_col_r;
-
 var score_r = 0;
 var score_l = 0;
 
+//Html Score Board Elements
 var score_l_display = document.getElementById("score-left");
 var score_r_display = document.getElementById("score-right");
 
+var pong_light;
+
+//Pong Ball Properties for Pong Cube
 var pongBall = {
     
     speed: 0.05,
-    speedAccel: 0.01,
+    speedAccel: 0.01, //Speed Gain on Rebound X
     
     rotation: 0.1,
     
@@ -738,6 +736,7 @@ var pongBall = {
     
     releasePong: function()
     {
+    
         if(((Math.random() * 10) + 1) < 5 )
         {
             this.setVelocity(-pongBall.speed, pongBall.speed / ((Math.random() * 10) - 5)/2);
@@ -751,15 +750,17 @@ var pongBall = {
         this.velocity.y += x * (this.velocity.y/Math.abs(this.velocity.y));
     },
     
+    //Rebound along X Axis
     reboundX: function()
     {
-        this.addVelocity(this.speedAccel, 0);
-        this.rotation += 0.025;
+        this.addVelocity(this.speedAccel, 0); //Pong Ball gets Faster
+        this.rotation += 0.025; //Rotation gets Faster
         
         this.velocity.x *= -1;
-        this.rotation *= -1;
+        this.rotation *= -1; //Flips Pong Rotation
     },
     
+    //Rebound on Y Axis
     reboundY: function()
     {
         this.velocity.y *= -1;
@@ -786,7 +787,7 @@ var pongBall = {
                 score_r_display.innerHTML = score_r;
         }
         
-        debug(score_l + " : " + score_r);
+        debug("L " + score_l + " : R " + score_r);
     
         pong.position.x = 0;
         pong.position.y = 0;
@@ -795,8 +796,10 @@ var pongBall = {
         newGame = true;
     },
     
+    //Frame Update for Pong Ball Position
     updatePosition: function()
     {
+        //Actual Pong Cube
         pong.position.x += this.velocity.x;
         pong.position.y += this.velocity.y;
         
@@ -809,6 +812,10 @@ var pongBall = {
         this.collisionCheck(paddle_r);
         
         pong.rotateZ(this.rotation * (this.velocity.y*10));
+        
+        pong_light.position.x = pong.position.x;
+        pong_light.position.y = pong.position.y;
+
     },
     
     collisionCheck(paddle)
