@@ -81,6 +81,13 @@
 		}
 	},
     {
+        "COMMENT": "Pong Light",
+        "type": "pointLight",
+        "name": "pongLight",
+        "color": [255, 255, 255],
+        "position": [0, 0, 0.2]
+    },
+    {
         "COMMENT": "Border",
         "type": "mesh",
         "name": "border_top",
