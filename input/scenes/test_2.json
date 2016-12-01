@@ -1,0 +1,37 @@
+{ 
+"COMMENT": "Jordan Fest: Test File",
+"type": "node",
+"name": "rootNode_sub",
+
+"scriptFiles": 
+[
+	"/input/scripts/test/test_2.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl"]
+},
+
+"children":
+[
+    {
+		"COMMENT": "PHONG SPHERE",
+		"type": "mesh",
+		"name": "ball",
+		"translate": [2, 0, 0],
+        "scale": [0.5, 0.5, 0.5],
+		"geometry": "sphere",
+		"widthSegments": 32,
+		"heightSegments": 16,
+		"material": 
+		{
+			"type": "meshPhongMaterial",
+			"name": "spherePhongMat",
+			"diffuseColor": [0, 0.5, 0],
+            "specular": [0.3, 0.3, 0.3],
+            "shininess": 100
+		}
+	}
+]
+}

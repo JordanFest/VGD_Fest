@@ -1,0 +1,54 @@
+{ 
+"COMMENT": "Jordan Fest: Test File",
+"type": "node",
+"name": "rootNode_main",
+
+"scriptFiles": 
+[
+	"/input/scripts/test/test_1.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl"]
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [0, 0, 15],
+		"center": [3.5, 0.5, 0],
+		"vup": [0, 1, 0],
+		"fov": 30
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light_l",
+        "castShadow": true,
+		"color": [0.5, 0.0, 0.0],
+		"position": [5, 5, 5]
+	},
+    {
+		"COMMENT": "PHONG SPHERE",
+		"type": "mesh",
+		"name": "ball",
+		"translate": [-2, 0, 0],
+        "scale": [0.5, 0.5, 0.5],
+		"geometry": "sphere",
+		"widthSegments": 32,
+		"heightSegments": 16,
+		"material": 
+		{
+			"type": "meshPhongMaterial",
+			"name": "spherePhongMat",
+			"diffuseColor": [0.5, 0, 0],
+            "specular": [0.3, 0.3, 0.3],
+            "shininess": 100
+		}
+	}
+]
+}

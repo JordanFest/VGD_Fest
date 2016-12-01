@@ -1,0 +1,27 @@
+nav {
+	background-color: #6A68A3;
+}
+
+.btn {
+	background-color: #D8B871;
+	color: #111111 !important;
+}
+
+.active {
+	background-color: #E0A35F;
+}
+
+.disabled {
+	background-color: #85807F;
+}
+
+.scene-btn {
+    background-color: #DCF0FF;
+    box-shadow: 2px 2px 2px black;
+    padding: 4px;
+}
+
+.icon-span {
+    min-width: 256px;
+    min-height: 256px;
+}

@@ -1,0 +1,93 @@
+{ 
+"COMMENT": "Jordan Fest: Sprint 1 Test File",
+"type": "node",
+"name": "rootNode",
+
+"scriptFiles": 
+[
+	"/input/scripts/sprint_1/sprint_1_test.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl"]
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [0, 0, 15],
+		"center": [3.5, 0.5, 0],
+		"vup": [0, 1, 0],
+		"fov": 30
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light_l",
+        "castShadow": true,
+		"color": [0.5, 0.0, 0.0],
+		"position": [5, 5, 5]
+	},	
+    {
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light_l",
+        "castShadow": true,
+		"color": [0.0, 0.0, 0.5],
+		"position": [5, 5, 5]
+	},
+	{
+		"COMMENT": "HEMISPHERE LIGHT",
+		"type": "hemisphereLight",
+		"name": "light_h",
+		"skyColor": [0.1, 0.1, 0.25],
+		"groundColor": [0.0, 0.0, 0.1]
+	},
+	{
+		"COMMENT": "POINT LIGHT",
+		"type": "pointLight",
+		"name": "light_p",
+		"color": [0, 0.5, 0],
+        "intensity": 5,
+		"position": [0, 0, 0.0]
+	},
+    {
+		"COMMENT": "PHONG SPHERE",
+		"type": "mesh",
+		"name": "ball",
+		"translate": [0, 0, 0],
+        "scale": [0.5, 0.5, 0.5],
+		"geometry": "sphere",
+		"widthSegments": 32,
+		"heightSegments": 16,
+        "castShadow": true,
+		"material": 
+		{
+			"type": "meshPhongMaterial",
+			"name": "spherePhongMat2",
+			"diffuseColor": [0.5, 0.5, 0.5],
+            "specular": [0.3, 0.3, 0.3],
+            "shininess": 100
+		}
+	},
+    {
+        "COMMENT": "backdrop",
+		"type": "mesh",
+		"name": "floor",
+		"translate": [0, 0, -2],
+		"geometry": "cube",
+        "scale": [50, 50, 0.5],
+        "receiveShadow": true,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "boxLambertMat",
+			"diffuseColor": [1, 1, 1]
+		}   
+    }
+]
+}

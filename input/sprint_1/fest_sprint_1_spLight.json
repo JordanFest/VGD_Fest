@@ -1,0 +1,136 @@
+{ 
+"COMMENT": "Jordan Fest: Sprint 1 Directional Light Test File",
+"type": "node",
+"name": "rootNode",
+
+"scriptFiles": 
+[
+	"/input/scripts/sprint_1/sprint_1_light_test.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl"]
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [0, 0, 10],
+		"center": [0, 0, 0],
+		"vup": [0, 1, 0],
+		"fov": 30
+	},
+	{
+		"COMMENT": "SPOT LIGHT",
+		"type": "spotLight",
+		"name": "light_s",
+        "color": [1, 1, 0],
+        "decay": 1,
+        "distance": 1000,
+        "intensity": 2,
+        "penumbra": 0.0,
+        "castShadow": true,
+        "position": [-3, 3, 3]
+	},
+    {
+		"COMMENT": "SPOT LIGHT",
+		"type": "spotLight",
+		"name": "light_s",
+        "color": [0, 1, 1],
+        "decay": 1,
+        "distance": 1000,
+        "intensity": 2,
+        "penumbra": 0.0,
+        "castShadow": true,
+        "position": [3, 3, -3]
+	},
+    {
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light_h",
+        "color": [0.25, 0.25, 0.25]
+	},
+    {
+		"COMMENT": "Lambert SPHERE",
+		"type": "mesh",
+		"name": "sphere",
+		"translate": [0.5, -0.5, 0],
+		"geometry": "sphere",
+		"widthSegments": 32,
+		"heightSegments": 16,
+        "castShadow": true,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [1, 1, 1]
+		}
+	},
+        {
+		"COMMENT": "Lambert SPHERE",
+		"type": "mesh",
+		"name": "sphere2",
+		"translate": [3.5, -0.5, -2],
+		"geometry": "sphere",
+		"widthSegments": 32,
+		"heightSegments": 16,
+        "castShadow": true,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [1, 1, 1]
+		}
+	},
+        {
+		"COMMENT": "Lambert SPHERE",
+		"type": "mesh",
+		"name": "sphere3",
+		"translate": [-2.25, -0.5, 2],
+		"geometry": "sphere",
+		"widthSegments": 32,
+		"heightSegments": 16,
+        "castShadow": true,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [1, 1, 1]
+		}
+	},
+    {
+ 		"COMMENT": "floor",
+		"type": "mesh",
+		"name": "floor",
+		"translate": [0, -2, 0],
+		"geometry": "cube",
+        "scale": [10, 0.5, 10],
+        "receiveShadow": true,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [1, 1, 1]
+		}   
+    },
+    {
+        "COMMENT": "backdrop",
+		"type": "mesh",
+		"name": "floor",
+		"translate": [0, 0, -10],
+		"geometry": "cube",
+        "scale": [10, 10, 0.5],
+        "receiveShadow": true,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [1, 1, 1]
+		}   
+    }
+]
+}

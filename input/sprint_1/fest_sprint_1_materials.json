@@ -1,0 +1,122 @@
+{ 
+"COMMENT": "Jordan Fest: Sprint 1 Material File",
+"type": "node",
+"name": "rootNode",
+
+"scriptFiles": 
+[
+	"/input/scripts/sprint_1/sprint_1_material_test.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl"]
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [0, 0, 10],
+		"center": [0, 0, 0],
+		"vup": [0, 1, 0],
+		"fov": 30
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light",
+		"color": [0, 0, 1],
+		"position": [0, 0, 0]
+	},
+    {
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light",
+		"color": [1, 1, 1],
+		"position": [0, 0, 0]
+	},
+    {
+		"COMMENT": "Lambert SPHERE",
+		"type": "mesh",
+		"name": "sphere_l",
+		"translate": [0, 0, 0],
+		"geometry": "sphere",
+		"widthSegments": 32,
+		"heightSegments": 16,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [1, 0.2, 0.3]
+		}
+	},
+	{
+		"COMMENT": "PHONG SPHERE",
+		"type": "mesh",
+		"name": "sphere_p",
+		"translate": [-1.5, 1.5, 0],
+		"geometry": "sphere",
+		"widthSegments": 32,
+		"heightSegments": 16,
+		"material": 
+		{
+			"type": "meshPhongMaterial",
+			"name": "spherePhongMat1",
+			"diffuseColor": [1, 0.2, 0.3],
+            "specular": [0, 1, 0],
+            "shininess": 5
+		}
+	},
+    	{
+		"COMMENT": "PHONG_2 SPHERE",
+		"type": "mesh",
+		"name": "sphere_p",
+		"translate": [1.5, -1.5, 0],
+		"geometry": "sphere",
+		"widthSegments": 32,
+		"heightSegments": 16,
+		"material": 
+		{
+			"type": "meshPhongMaterial",
+			"name": "spherePhongMat2",
+			"diffuseColor": [1, 0.2, 0.3],
+            "specular": [0.3, 0.3, 0.3],
+            "shininess": 50
+		}
+	},
+    {
+		"COMMENT": "BASIC SPHERE",
+		"type": "mesh",
+		"name": "sphere_b",
+		"translate": [1.5, 1.5, 0],
+		"geometry": "sphere",
+		"widthSegments": 32,
+		"heightSegments": 16,
+		"material": 
+		{
+			"type": "meshBasicMaterial",
+			"name": "sphereBasicMat1",
+			"diffuseColor": [1, 0.2, 0.3]
+		}
+	},
+    {
+		"COMMENT": "BASIC_2 SPHERE",
+		"type": "mesh",
+		"name": "sphere_b",
+		"translate": [-1.5, -1.5, 0],
+		"geometry": "sphere",
+		"widthSegments": 32,
+		"heightSegments": 16,
+		"material": 
+		{
+			"type": "meshBasicMaterial",
+			"name": "sphereBasicMat2",
+			"diffuseColor": [1, 0.2, 0.3],
+            "wireframe": true
+		}
+	}
+]
+}
