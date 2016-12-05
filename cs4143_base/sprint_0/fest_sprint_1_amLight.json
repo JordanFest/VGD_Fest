@@ -5,7 +5,7 @@
 
 "scriptFiles": 
 [
-	"../input/scripts/sprint_1/sprint_1_light_test.js"
+	"/input/scripts/sprint_1/sprint_1_light_test.js"
 ],
 
 "userData":
@@ -23,22 +23,21 @@
 		"center": [0, 0, 0],
 		"vup": [0, 1, 0],
 		"fov": 30
-	},   
+	},
     {
-		"COMMENT": "HEMISPHERE LIGHT",
-		"type": "hemisphereLight",
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light_3",
+        "color": [0.25, 0.25, 0.5],
+        "position": [-3, 2, 1]
+	},
+	{
+		"COMMENT": "Ambient LIGHT",
+		"type": "ambientLight",
 		"name": "light_s",
-        "skyColor": [1, 0, 0],
-        "groundColor": [0,0,0]
-	},
-    {
-		"COMMENT": "HEMISPHERE LIGHT",
-		"type": "hemisphereLight",
-		"name": "light_s2",
-        "intensity": 1,
-        "skyColor": [0, 0, 0],
-        "groundColor": [0,0,1]
-	},
+        "color": [0, 0, 1],
+        "intensity": 1
+	},    
     {
 		"COMMENT": "Lambert SPHERE",
 		"type": "mesh",

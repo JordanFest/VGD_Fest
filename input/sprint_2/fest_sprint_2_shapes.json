@@ -1,5 +1,5 @@
 { 
-"COMMENT": "Jordan Fest: Sprint 1 Directional Light Test File",
+"COMMENT": "Jordan Fest: Sprint 2 Shape Test File",
 "type": "node",
 "name": "rootNode",
 
@@ -23,27 +23,26 @@
 		"center": [0, 0, 0],
 		"vup": [0, 1, 0],
 		"fov": 30
-	},   
+	},
+    {
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light_3",
+        "color": [0.25, 0.25, 0.5],
+        "position": [-3, 2, 1]
+	},
     {
 		"COMMENT": "HEMISPHERE LIGHT",
 		"type": "hemisphereLight",
 		"name": "light_s",
-        "skyColor": [1, 0, 0],
-        "groundColor": [0,0,0]
-	},
+        "skyColor": [0.85, 0.95, 1],
+        "groundColor": [1, 0.95, 0.93]
+	},    
     {
-		"COMMENT": "HEMISPHERE LIGHT",
-		"type": "hemisphereLight",
-		"name": "light_s2",
-        "intensity": 1,
-        "skyColor": [0, 0, 0],
-        "groundColor": [0,0,1]
-	},
-    {
-		"COMMENT": "Lambert SPHERE",
+		"COMMENT": "Default SPHERE",
 		"type": "mesh",
 		"name": "sphere",
-		"translate": [0.5, -0.5, 0],
+		"translate": [0, 0, 0],
 		"geometry": "sphere",
 		"widthSegments": 32,
 		"heightSegments": 16,
@@ -51,37 +50,7 @@
 		{
 			"type": "meshLambertMaterial",
 			"name": "sphereLambertMat",
-			"diffuseColor": [1, 1, 1]
-		}
-	},
-        {
-		"COMMENT": "Lambert SPHERE",
-		"type": "mesh",
-		"name": "sphere2",
-		"translate": [3.5, -0.5, -2],
-		"geometry": "sphere",
-		"widthSegments": 32,
-		"heightSegments": 16,
-		"material": 
-		{
-			"type": "meshLambertMaterial",
-			"name": "sphereLambertMat",
-			"diffuseColor": [1, 1, 1]
-		}
-	},
-        {
-		"COMMENT": "Lambert SPHERE",
-		"type": "mesh",
-		"name": "sphere3",
-		"translate": [-2.25, -0.5, 2],
-		"geometry": "sphere",
-		"widthSegments": 32,
-		"heightSegments": 16,
-		"material": 
-		{
-			"type": "meshLambertMaterial",
-			"name": "sphereLambertMat",
-			"diffuseColor": [1, 1, 1]
+			"diffuseColor": [0.5, 0.25, 0.25]
 		}
 	},
     {

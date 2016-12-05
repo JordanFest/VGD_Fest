@@ -1,0 +1,152 @@
+{ 
+"COMMENT": "Jordan Fest: Sprint 2 Shape Test File",
+"type": "node",
+"name": "rootNode",
+
+"scriptFiles": 
+[
+	"../input/scripts/sprint_2/sprint_2_shapes.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl"]
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [0, 0, 10],
+		"center": [0, 0, 0],
+		"vup": [0, 1, 0],
+		"fov": 30
+	},
+    {
+		"COMMENT": "HEMISPHERE LIGHT",
+		"type": "hemisphereLight",
+		"name": "light_s",
+        "skyColor": [0.45, 0.55, 0.7],
+        "groundColor": [1, 0.95, 0.93]
+	},    
+    {
+		"COMMENT": "Default SPHERE",
+		"type": "mesh",
+		"name": "shape",
+		"translate": [0, 0, 0],
+		"geometry": "sphere",
+        "radius": 0.75,
+		"widthSegments": 32,
+		"heightSegments": 16,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0.75, 0.25, 0.25]
+		}
+	},
+    {
+		"COMMENT": "Default Cube",
+		"type": "mesh",
+		"name": "shape",
+		"translate": [-2.5, 0, 0],
+		"geometry": "cube",
+		"width": 1,
+		"height": 1,
+        "depth": 1,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0.75, 0.25, 0.25]
+		}
+	},
+    {
+		"COMMENT": "Default Cone",
+		"type": "mesh",
+		"name": "shape",
+		"translate": [2.5, 0, 0],
+		"geometry": "cone",
+        "radius": 0.6,
+        "height": 1.25,
+		"radialSegments": 32,
+		"heightSegments": 16,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0.75, 0.25, 0.25]
+		}
+	},
+    {
+		"COMMENT": "Default Torus",
+		"type": "mesh",
+		"name": "shape",
+		"translate": [1.25, -2, 0],
+		"geometry": "torus",
+        "radius": 0.5,
+        "tube": 0.2,
+		"radialSegments": 32,
+		"tubularSegments": 16,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0.75, 0.25, 0.25]
+		}
+	},
+    {
+		"COMMENT": "Default Plane",
+		"type": "mesh",
+		"name": "shape",
+		"translate": [0, 2, 0],
+		"geometry": "plane",
+        "radius": 0.5,
+        "tube": 0.2,
+        "height": 1,
+        "width": 1,
+		"widthSegments": 32,
+		"heightSegments": 16,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0.75, 0.25, 0.25]
+		}
+	},
+    {
+		"COMMENT": "Default Cylinder",
+		"type": "mesh",
+		"name": "shape",
+		"translate": [-1.25, -2, 0],
+		"geometry": "cylinder",
+        "radiusTop": 0.4,
+        "height": 1.25,
+        "radiusBottom": 0.4,
+		"radiusSegments": 32,
+		"heightSegments": 16,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0.75, 0.25, 0.25]
+		}
+	},
+    {
+        "COMMENT": "backdrop",
+		"type": "mesh",
+		"name": "floor",
+		"translate": [0, 0, -2],
+		"geometry": "cube",
+        "scale": [10, 10, 0.5],
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [1, 1, 1]
+		}   
+    }
+]
+}

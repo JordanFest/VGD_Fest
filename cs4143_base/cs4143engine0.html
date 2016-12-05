@@ -122,7 +122,7 @@ var currentCamera;		// The current camera used to render the scene
 var currentRenderer;	// The current renderer used to render the scene
 
 //TEXTURE DATA
-var MISSINGTEXTURE = "/images/MissingTexture.png"
+var MISSINGTEXTURE = "../images/MissingTexture.png"
 
 // INITIALIZATION AND STARTUP (EXECUTES WHEN PAGE LOADS)
 processArgs();
@@ -447,6 +447,11 @@ function parseSceneNode(jsonNode, sceneNode)
 				sceneNode.add(mesh);
 				parseSceneNode(childJsonNode, mesh);
 			}
+ 			else if (childType == "sprite") {
+				var sprite = parseSprite(childJsonNode);
+				sceneNode.add(sprite);
+				parseSceneNode(childJsonNode, sprite);
+			}           
 		}
 	}	
 }
@@ -704,8 +709,8 @@ function parseMesh(jsonNode)
 		geometry = new THREE.SphereGeometry(radius, heightSegments, widthSegments);
 	}
     else if (geometryType == "cone") {
-		var radius = 20;
-        var height = 100;
+		var radius = 1;
+        var height = 2;
 		var widthSegments = 8;
 		var heightSegments = 1;
         var openEnded = false;
@@ -713,7 +718,7 @@ function parseMesh(jsonNode)
         var thetaLength = 2*Math.PI;
 		if ("radius"         in jsonNode) radius         = jsonNode["radius"];     
         if ("height"         in jsonNode) height         = jsonNode["height"];          
-		if ("widthSegments"  in jsonNode) widthSegments  = jsonNode["widthSegments"];
+		if ("radialSegments"  in jsonNode) radialSegments  = jsonNode["radialSegments"];
 		if ("heightSegments" in jsonNode) heightSegments = jsonNode["heightSegments"];
         if ("openEnded"      in jsonNode) openEnded      = jsonNode["openEnded"];
         if ("thetaStart"     in jsonNode) thetaStart     = jsonNode["thetaStart"];  
@@ -723,16 +728,18 @@ function parseMesh(jsonNode)
 		geometry = new THREE.ConeGeometry(radius, height, radialSegments, heightSegments, openEnded, thetaStart, thetaLength);
 	}
     else if (geometryType == "cylinder") {
-		var radiusTop = 20;
-        var radiusBottom = 20;
+		var radiusTop = 1;
+        var radiusBottom = 1;
         var radiusSegments = 8;
         var heightSegments = 1;
+        var height = 2;
         var openEnded = false;
         var thetaStart = 1;
         var thetaLength = 2*Math.PI;
 		if ("radiusTop"      in jsonNode) radiusTop      = jsonNode["radiusTop"]; 
         if ("radiusBottom"   in jsonNode) radiusBottom   = jsonNode["radiusBottom"];                  
-		if ("radiusSegments" in jsonNode) widthSegments  = jsonNode["widthSegments"];
+		if ("radiusSegments" in jsonNode) radiusSegments  = jsonNode["radiusSegments"];
+        if ("height"         in jsonNode) height         = jsonNode["height"];  
 		if ("heightSegments" in jsonNode) heightSegments = jsonNode["heightSegments"];
         if ("openEnded"      in jsonNode) openEnded      = jsonNode["openEnded"];
         if ("thetaStart"     in jsonNode) thetaStart     = jsonNode["thetaStart"];  
@@ -742,15 +749,15 @@ function parseMesh(jsonNode)
 		geometry = new THREE.CylinderGeometry(radiusTop, radiusBottom, height, radiusSegments, heightSegments, openEnded, thetaStart, thetaLength);
 	}
     else if (geometryType == "torus") {
-		var radius = 100;
-        var tube = 40;
-        var radiusSegments = 8;
-        var heightSegments = 6;
+		var radius = 1;
+        var tube = 2;
+        var radialSegments = 8;
+        var tubularSegments = 6;
         var openEnded = false;
         var arc = 2 * Math.PI;
 		if ("radius"          in jsonNode) radius         = jsonNode["radius"];                 
 		if ("tube"            in jsonNode) tube           = jsonNode["tube"];
-		if ("tubularSegments" in jsonNode) heightSegments = jsonNode["heightSegments"];
+		if ("tubularSegments" in jsonNode) tubularSegments = jsonNode["tubularSegments"];
         if ("radialSegments"  in jsonNode) radialSegments = jsonNode["radialSegments"];
         if ("arc"             in jsonNode) arc            = jsonNode["arc"];   
         if ("receiveShadow"   in jsonNode) receiveShadow  = jsonNode["receiveShadow"];
@@ -758,8 +765,8 @@ function parseMesh(jsonNode)
 		geometry = new THREE.TorusGeometry(radius, tube, radialSegments, tubularSegments, arc);
 	} 
     else if (geometryType == "plane") {
-		var height = 10;
-        var width = 10;
+		var height = 2;
+        var width = 2;
         var widthSegments = 1;
         var heightSegments = 1;
 		if ("height"         in jsonNode) height         = jsonNode["height"];                 
@@ -862,7 +869,7 @@ function parseMaterial(jsonNode)
 
 function parseSprite(jsonNode)
 {
-    var color = ff00ff;
+    var color = [1, 1, 1];
     var fog = false;
     var spriteURL = MISSINGTEXTURE;
     var sprite;

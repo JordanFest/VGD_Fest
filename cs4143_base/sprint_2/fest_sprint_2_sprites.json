@@ -1,0 +1,121 @@
+{ 
+"COMMENT": "Jordan Fest: Sprint 2 Shape Test File",
+"type": "node",
+"name": "rootNode",
+
+"scriptFiles": 
+[
+	"../input/scripts/sprint_2/sprint_2_sprites.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl"]
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [0, 0, 10],
+		"center": [0, 0, 0],
+		"vup": [0, 1, 0],
+		"fov": 30
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light",
+        "color": [1, 1, 1],
+        "position": [-4, 3, 4]
+	}, 
+    {
+		"COMMENT": "SPRITE",
+		"type": "sprite",
+		"name": "ball",
+        "sprite": "../images/ball.png",
+        "color": [1, 1, 1],
+        "position": [-1, 0, 0]
+	}, 
+    {
+		"COMMENT": "Wall",
+		"type": "mesh",
+		"name": "wall",
+		"translate": [0, 4.5, -5],
+		"geometry": "cube",
+		"width": 5,
+		"height": 0.25,
+        "depth": 0.25,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0, 0, 0]
+		}
+	},
+        {
+		"COMMENT": "Wall",
+		"type": "mesh",
+		"name": "wall",
+		"translate": [0, -4.5, -5],
+		"geometry": "cube",
+		"width": 5,
+		"height": 0.25,
+        "depth": 0.25,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0, 0, 0]
+		}
+	},
+        {
+		"COMMENT": "Wall",
+		"type": "mesh",
+		"name": "wall",
+		"translate": [-4.5, 0, -5],
+		"geometry": "cube",
+		"width": 0.25,
+		"height": 5.25,
+        "depth": 0.25,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0, 0, 0]
+		}
+	},
+        {
+		"COMMENT": "Wall",
+		"type": "mesh",
+		"name": "wall",
+		"translate": [4.5, 0, -5],
+		"geometry": "cube",
+		"width": 0.25,
+		"height": 5.25,
+        "depth": 0.25,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0, 0, 0]
+		}
+	},
+    {
+        "COMMENT": "backdrop",
+		"type": "mesh",
+		"name": "floor",
+		"translate": [0, 0, -2],
+		"geometry": "cube",
+        "scale": [10, 10, 0.5],
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [1, 1, 1]
+		}   
+    }
+]
+}
