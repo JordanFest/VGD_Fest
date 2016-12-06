@@ -76,6 +76,7 @@ SimpleHTTPServer:
 </div>
 
 <!-- INCLUDE SCRIPTS HERE -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="../build/three.js"></script>
 
 <!-- ==================================================================== -->
@@ -99,6 +100,10 @@ var startTime = 0; 		// When the scene was loaded (in seconds)
 var sceneURL;           // URL of the scene to be loaded
 var rendererContainer;	// A div element that will hold the renderer
 var loadingManager;		// loading manager
+
+var frameDuration;
+var lastFrameDuration;
+var framNum = 0;
 
 // MOUSE DATA
 var mouseX = 0;			// Current position of mouse
@@ -385,7 +390,8 @@ function parseSceneNode(jsonNode, sceneNode)
 
 	// Whether the node starts out as visible.
 	if ("visible" in jsonNode) {
-		sceneNode.setVisible(jsonNode["visible"]);
+		//sceneNode.setVisible(jsonNode["visible"]);
+		sceneNode["visible"] = jsonNode["visible"];
 	}
 
 	// Traverse all the child nodes. The typical code pattern here is:
@@ -791,7 +797,7 @@ function parseMesh(jsonNode)
 function parseMaterial(jsonNode)
 {
 	//debug("parseMaterial\n");
-	if (jsonNode === undefined) return new MeshLambertMaterial();
+	if (jsonNode === undefined) return new THREE.MeshLambertMaterial();
 	var type = jsonNode["type"];
 
     //Basic Material
@@ -860,7 +866,7 @@ function parseMaterial(jsonNode)
 	}
 
 	// Failed to make a material, so return a default
-	return new MeshLambertMaterial();
+	return new THREE.MeshLambertMaterial();
 }
 
 //----------------------------------------------------------------------//
@@ -902,7 +908,7 @@ function parseTexture(textureURL)
 {
 	//debug("parseTexture: " + textureURL + "\n");
 	var texture = new THREE.Texture();
-	var loader = new THREE.ImageLoader(manager);
+	var loader = new THREE.ImageLoader(loadingManager);
 	loader.load( 
 		textureURL, 
 		function(image) { // callback function
@@ -952,6 +958,12 @@ function animateFrame()
 	if (currentCamera !== undefined) currentCamera.updateProjectionMatrix();
 	if (currentScene  !== undefined) currentScene.traverse(runScripts);
 
+	if(lastFrameDuration == null)
+		lastFrameDuration = getElapsedTime();
+	
+	frameDuration = getElapsedTime() - lastFrameDuration;
+	framNum++;
+	
 	// Update previous mouse state here because animateFrame 
 	// out of sync with mouse listeners (onMouseMove, onMouseWheel)
 	mousePrevX = mouseX;

@@ -26,7 +26,7 @@
     	</div></nav>
 
         <div class="container">
-            <a class="btn-large" href="cs4143_base/cs4143engine0.html?url=/input/scenes/test_1.json">Test</a>
+			<a class="btn-large" href="cs4143_base/cs4143engine0.html?url=Final/fest_Final.json">Final</a>
         </div>
     </body>
 </html>
@@ -35,3 +35,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <script type="text/javascript" src="three.js-master\build\three.min.js"></script>
 <script type="text/javascript">$(".button-collapse").sideNav();</script>
+<script id="fragment_shader" type="x-shader/x-fragment">
+
+	if(gl_FragColor.a < 0.5)
+		discard;
+</script>

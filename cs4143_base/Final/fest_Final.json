@@ -1,0 +1,226 @@
+{ 
+"COMMENT": "Jordan Fest: Final Project",
+"type": "node",
+"name": "rootNode",
+
+"scriptFiles": 
+[
+	"../input/scripts/final/main.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl"]
+},
+
+"children":
+[
+	{
+		"type": "node",
+		"name": "player",
+		"translate": [0, 3, 0],
+		"children": 
+		[
+			{
+				"type": "perspectiveCamera",
+				"name": "camera",
+				"eye": [0, 0, 1],
+				"center": [0, 0, 0],
+				"vup": [0, 1, 0],
+				"fov": 30
+			},
+			{
+				"type": "node",
+				"name": "gun",
+				"translate": [0.1, -0.1, 0],
+				"children": 
+				[
+					{				
+						"type": "sprite",
+						"name": "gun_frame",
+						"scale": [0.425, 0.425, 0.425],
+						"sprite": "../images/Final/Gun/mg_1.png",
+						"material": 
+						{
+							"type": "meshBasicMaterial",
+							"name": "mat1",
+							"color": [1, 1, 1]
+						}
+					},
+					{				
+						"type": "sprite",
+						"name": "gun_frame",
+						"scale": [0.425, 0.425, 0.425],
+						"visible": false,
+						"sprite": "../images/Final/Gun/mg_f.png",
+						"material": 
+						{
+							"type": "meshBasicMaterial",
+							"name": "mat1",
+							"color": [1, 1, 1]
+						}	
+					}
+				]
+			}
+		]
+	},
+	{
+		"type": "node",
+		"name": "targetEnemy",
+		"scale": [1, 1, 1],
+		"visible": true,
+		"translate": [0, 1.5, 0],
+		"children": 
+		[
+			{				
+				"type": "sprite",
+				"name": "target_frame",
+				"scale": [1, 1, 1],
+				"sprite": "../images/Final/Enemies/target_0.png",
+				"material": 
+				{
+					"type": "meshBasicMaterial",
+					"name": "mat1",
+					"color": [1, 1, 1]
+				}
+			},
+			{				
+				"type": "sprite",
+				"name": "target_frame",
+				"scale": [1, 1, 1],
+				"visible": false,
+				"sprite": "../images/Final/Enemies/target_1.png",
+				"material": 
+				{
+					"type": "meshBasicMaterial",
+					"name": "mat1",
+					"color": [1, 1, 1]
+				}	
+			},
+			{				
+				"type": "sprite",
+				"name": "target_frame",
+				"scale": [1, 1, 1],
+				"visible": false,
+				"sprite": "../images/Final/Enemies/target_2.png",
+				"material": 
+				{
+					"type": "meshBasicMaterial",
+					"name": "mat1",
+					"color": [1, 1, 1]
+				}	
+			}
+		]
+	},
+    {
+		"COMMENT": "HEMISPHERE LIGHT",
+		"type": "hemisphereLight",
+		"name": "light_s",
+        "skyColor": [0.45, 0.55, 0.7],
+        "groundColor": [1, 0.95, 0.93]
+	},
+	{
+		"COMMENT": "Default Cube",
+		"type": "mesh",
+		"name": "shape",
+		"translate": [-2.5, 0, 0],
+		"geometry": "cube",
+		"width": 1,
+		"height": 2,
+        "depth": 1,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0.75, 0.25, 0.25]
+		}
+	},
+	{
+		"COMMENT": "Default Cube",
+		"type": "mesh",
+		"name": "shape",
+		"translate": [0, 0, -2.5],
+		"geometry": "cube",
+		"width": 1,
+		"height": 2,
+        "depth": 1,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0.75, 0.25, 0.25]
+		}
+	},
+	{
+		"COMMENT": "Default Cube",
+		"type": "mesh",
+		"name": "shape",
+		"translate": [0, 0, 2.5],
+		"geometry": "cube",
+		"width": 1,
+		"height": 2,
+        "depth": 1,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0, 0.25, 0.25]
+		}
+	},
+	{
+		"COMMENT": "Default Cube",
+		"type": "mesh",
+		"name": "shape",
+		"translate": [2.5, 0, 0],
+		"geometry": "cube",
+		"width": 1,
+		"height": 2,
+        "depth": 1,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0.75, 0.25, 0.25]
+		}
+	},
+	{
+		"COMMENT": "Default Cube",
+		"type": "mesh",
+		"name": "shape",
+		"translate": [0, 0, -10],
+		"geometry": "cube",
+		"width": 1,
+		"height": 5,
+        "depth": 1,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereLambertMat",
+			"diffuseColor": [0.75, 0.25, 0.25]
+		}
+	},
+	{
+		"type": "node",
+		"name": "arena",
+		"translate": [0, 0, 0],
+		"children": [
+			{
+				"type": "mesh",
+				"name": "floor",
+				"translate": [0, 0, 0],
+				"geometry": "cube",
+				"height": 0.1,
+				"width": 1000,
+				"depth": 1000,
+				"scale": [1, 1, 1],
+				"material": 
+				{
+					"type": "meshLambertMaterial",
+					"name": "floorMat",
+					"diffuseColor": [0.24, 0.12, 0.08]
+				}  
+			}
+		]	
+	}
+]
+}

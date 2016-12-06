@@ -1,0 +1,3 @@
+Sound:
+	gun_fire: https://www.freesound.org/people/TheNikonProductions/sounds/337698/
+	gun_dryfire: http://soundbible.com/1405-Dry-Fire-Gun.html
