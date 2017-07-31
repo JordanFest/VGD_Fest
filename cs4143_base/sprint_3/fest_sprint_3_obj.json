@@ -1,0 +1,35 @@
+{ 
+"COMMENT": "Jordan Fest: Sprint 2 Shape Test File",
+"type": "node",
+"name": "rootNode",
+
+"scriptFiles": 
+[
+	"../input/scripts/sprint_2/sprint_2_sprites.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl"]
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [0, 0, 10],
+		"center": [0, 0, 0],
+		"vup": [0, 1, 0],
+		"fov": 30
+	},
+    {
+		"COMMENT": "HEMISPHERE LIGHT",
+		"type": "hemisphereLight",
+		"name": "light_s",
+        "skyColor": [0.45, 0.55, 0.7],
+        "groundColor": [1, 0.95, 0.93]
+	}, 
+]
+}

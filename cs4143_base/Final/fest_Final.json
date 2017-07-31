@@ -17,65 +17,35 @@
 [
 	{
 		"type": "node",
-		"name": "player",
-		"translate": [0, 3, 0],
-		"children": 
-		[
-			{
-				"type": "perspectiveCamera",
-				"name": "camera",
-				"eye": [0, 0, 1],
-				"center": [0, 0, 0],
-				"vup": [0, 1, 0],
-				"fov": 30
-			},
-			{
-				"type": "node",
-				"name": "gun",
-				"translate": [0.1, -0.1, 0],
-				"children": 
-				[
-					{				
-						"type": "sprite",
-						"name": "gun_frame",
-						"scale": [0.425, 0.425, 0.425],
-						"sprite": "../images/Final/Gun/mg_1.png",
-						"material": 
-						{
-							"type": "meshBasicMaterial",
-							"name": "mat1",
-							"color": [1, 1, 1]
-						}
-					},
-					{				
-						"type": "sprite",
-						"name": "gun_frame",
-						"scale": [0.425, 0.425, 0.425],
-						"visible": false,
-						"sprite": "../images/Final/Gun/mg_f.png",
-						"material": 
-						{
-							"type": "meshBasicMaterial",
-							"name": "mat1",
-							"color": [1, 1, 1]
-						}	
-					}
-				]
-			}
-		]
-	},
-	{
-		"type": "node",
 		"name": "targetEnemy",
-		"scale": [1, 1, 1],
-		"visible": true,
+		"scale": [3.5, 3.5, 3.5],
+		"visible": false,
 		"translate": [0, 1.5, 0],
 		"children": 
 		[
+			{
+				"COMMENT": "Target Collision",
+				"type": "mesh",
+				"name": "col",
+				"translate": [0, -1, 0],
+				"geometry": "cube",
+				"width": 1.5,
+				"height": 3,
+				"depth": 1.5,
+				"visible": false,
+				"material": 
+				{
+					"type": "meshBasicMaterial",
+					"name": "playerColCubeMat",
+					"wireframe": true,
+					"diffuseColor": [1, 0, 0]
+				}
+			},
 			{				
 				"type": "sprite",
 				"name": "target_frame",
 				"scale": [1, 1, 1],
+				"visible": true,
 				"sprite": "../images/Final/Enemies/target_0.png",
 				"material": 
 				{
@@ -112,6 +82,99 @@
 			}
 		]
 	},
+	{
+		"type": "node",
+		"name": "player",
+		"translate": [0, 3, 0],
+		"children": 
+		[
+			{
+				"type": "perspectiveCamera",
+				"name": "camera",
+				"eye": [0, 0, 0],
+				"center": [0, 0, 0],
+				"vup": [0, 1, 0],
+				"fov": 30
+			},
+			{
+				"COMMENT": "Collision Box",
+				"type": "mesh",
+				"name": "col",
+				"translate": [0, 0, 0.5],
+				"geometry": "cube",
+				"width": 0.5,
+				"height": 1,
+				"depth": 0.5,
+				"visible": false,
+				"material": 
+				{
+					"type": "meshBasicMaterial",
+					"name": "playerColCubeMat",
+					"wireframe": true,
+					"diffuseColor": [0, 1, 0]
+				}
+			},
+			{
+				"type": "node",
+				"name": "gun",
+				"translate": [0.1, -0.1, -1],
+				"children": 
+				[
+					{				
+						"type": "sprite",
+						"name": "gun_frame",
+						"scale": [0.425, 0.425, 0.425],
+						"sprite": "../images/Final/Gun/mg_1.png",
+						"material": 
+						{
+							"type": "meshBasicMaterial",
+							"name": "mat1",
+							"color": [1, 1, 1]
+						}
+					},
+					{				
+						"type": "sprite",
+						"name": "gun_frame",
+						"scale": [0.425, 0.425, 0.425],
+						"visible": false,
+						"sprite": "../images/Final/Gun/mg_f.png",
+						"material": 
+						{
+							"type": "meshBasicMaterial",
+							"name": "mat1",
+							"color": [1, 1, 1]
+						}	
+					}
+				]
+			}
+		]
+	},
+	{
+		"type": "node",
+		"name": "bullet",
+		"translate": [0, 0, 0],
+		"children": 
+		[
+			{
+				"COMMENT": "Collision Box",
+				"type": "mesh",
+				"name": "col",
+				"translate": [0, 0, 0],
+				"geometry": "cube",
+				"width": 4,
+				"height": 0.5,
+				"depth": 4,
+				"visible": false,
+				"material": 
+				{
+					"type": "meshBasicMaterial",
+					"name": "playerColCubeMat",
+					"wireframe": true,
+					"diffuseColor": [0, 1, 0]
+				}
+			}
+		]
+	},
     {
 		"COMMENT": "HEMISPHERE LIGHT",
 		"type": "hemisphereLight",
@@ -120,84 +183,45 @@
         "groundColor": [1, 0.95, 0.93]
 	},
 	{
-		"COMMENT": "Default Cube",
-		"type": "mesh",
-		"name": "shape",
-		"translate": [-2.5, 0, 0],
-		"geometry": "cube",
-		"width": 1,
-		"height": 2,
-        "depth": 1,
-		"material": 
-		{
-			"type": "meshLambertMaterial",
-			"name": "sphereLambertMat",
-			"diffuseColor": [0.75, 0.25, 0.25]
-		}
-	},
-	{
-		"COMMENT": "Default Cube",
-		"type": "mesh",
-		"name": "shape",
-		"translate": [0, 0, -2.5],
-		"geometry": "cube",
-		"width": 1,
-		"height": 2,
-        "depth": 1,
-		"material": 
-		{
-			"type": "meshLambertMaterial",
-			"name": "sphereLambertMat",
-			"diffuseColor": [0.75, 0.25, 0.25]
-		}
-	},
-	{
-		"COMMENT": "Default Cube",
-		"type": "mesh",
-		"name": "shape",
-		"translate": [0, 0, 2.5],
-		"geometry": "cube",
-		"width": 1,
-		"height": 2,
-        "depth": 1,
-		"material": 
-		{
-			"type": "meshLambertMaterial",
-			"name": "sphereLambertMat",
-			"diffuseColor": [0, 0.25, 0.25]
-		}
-	},
-	{
-		"COMMENT": "Default Cube",
-		"type": "mesh",
-		"name": "shape",
-		"translate": [2.5, 0, 0],
-		"geometry": "cube",
-		"width": 1,
-		"height": 2,
-        "depth": 1,
-		"material": 
-		{
-			"type": "meshLambertMaterial",
-			"name": "sphereLambertMat",
-			"diffuseColor": [0.75, 0.25, 0.25]
-		}
-	},
-	{
-		"COMMENT": "Default Cube",
-		"type": "mesh",
-		"name": "shape",
-		"translate": [0, 0, -10],
-		"geometry": "cube",
-		"width": 1,
-		"height": 5,
-        "depth": 1,
-		"material": 
-		{
-			"type": "meshLambertMaterial",
-			"name": "sphereLambertMat",
-			"diffuseColor": [0.75, 0.25, 0.25]
-		}
+		"type": "node",
+		"name": "wall",
+		"translate": [0, 5, 0],
+		"visible": true,
+		"children": [
+			{
+				"type": "mesh",
+				"name": "wall_section",
+				"geometry": "cube",
+				"height": 10,
+				"width": 10,
+				"depth": 10,
+				"material": 
+				{
+					"type": "meshLambertMaterial",
+					"diffuseMap": "../images/Final/wall_section.png",
+					"name": "wallMat",
+					"diffuseColor": [1, 1, 1]
+				} 
+			},
+			{
+				"COMMENT": "Collision Box",
+				"type": "mesh",
+				"name": "col",
+				"translate": [0, 0, 0],
+				"geometry": "cube",
+				"width": 10,
+				"height": 10,
+				"depth": 10,
+				"visible": false,
+				"material": 
+				{
+					"type": "meshBasicMaterial",
+					"name": "playerColCubeMat",
+					"wireframe": true,
+					"diffuseColor": [0, 1, 0]
+				}
+			}
+		]
 	},
 	{
 		"type": "node",

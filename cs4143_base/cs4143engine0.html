@@ -78,6 +78,7 @@ SimpleHTTPServer:
 <!-- INCLUDE SCRIPTS HERE -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="../build/three.js"></script>
+<script src="../three.js-master/examples/js/loaders/OBJLoader.js"></script>
 
 <!-- ==================================================================== -->
 <!-- THE ACTUAL JAVASCRIPT ENGINE CODE -->
@@ -265,7 +266,7 @@ function onKeyDown(event)
 {
 	var key = event.keyCode ? event.keyCode : event.which;
 	pressedKeys[key] = true;
-	debug("onKeyDown " + key + "\n");
+	//debug("onKeyDown " + key + "\n");
 }
 
 function onKeyUp(event)
@@ -457,7 +458,7 @@ function parseSceneNode(jsonNode, sceneNode)
 				var sprite = parseSprite(childJsonNode);
 				sceneNode.add(sprite);
 				parseSceneNode(childJsonNode, sprite);
-			}           
+			} 
 		}
 	}	
 }
@@ -684,6 +685,10 @@ function parseMesh(jsonNode)
 	//debug("parseMesh\n");
     var castShadow = false;
     var receiveShadow = false;
+	
+	var notOBJ = true;
+	
+	var mesh;
     
 	// Get the material
 	var material = parseMaterial(jsonNode["material"]);
@@ -782,9 +787,29 @@ function parseMesh(jsonNode)
         if ("receiveShadow"  in jsonNode) receiveShadow  = jsonNode["receiveShadow"];
         if ("castShadow"     in jsonNode) castShadow     = jsonNode["castShadow"];
 		geometry = new THREE.PlaneGeometry(width, height, widthSegments, heightSegments)
-	}  
+	} 
+	else 
+	{
+		console.log(geometryType);
+		var loader = new THREE.OBJLoader(loadingManager);
+		
+		loader.load(geometryType,
+			function (object) {
+				object.traverse(function(child) {
+					if(child instanceof THREE.Mesh){
+						geometry = new THREE.Mesh();
+						geometry = child;
+						mesh = new THREE.Mesh( geometry, material );
+						mesh.castShadow = castShadow;
+						mesh.receiveShadow = receiveShadow;
+						return mesh;
+					}
+				});
+			}
+		);
+	}
 	// Create the mesh and return it
-	var mesh = new THREE.Mesh( geometry, material );
+	mesh = new THREE.Mesh( geometry, material );
     mesh.castShadow = castShadow;
     mesh.receiveShadow = receiveShadow;
 	return mesh;
